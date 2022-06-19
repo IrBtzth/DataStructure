@@ -71,7 +71,7 @@ FIN FUNCION
 
 ## Insentar elementos en una lista
 
-- Lista vacia: en esta caso es sencillo porque lista.primero = NULL, asi que es solo se crea un nuevo nodo y se hace que se apunte a ese.
+- **Lista vacia:** en esta caso es sencillo porque lista.primero = NULL, asi que es solo se crea un nuevo nodo y se hace que se apunte a ese.
 
 ``` C
  
@@ -82,7 +82,7 @@ FIN FUNCION
  
 ```
 
-- Insertar al principio
+- **Insertar al principio:**
 ``` C
  PROC InsertarPrincipio(l: Lista, b:libro)
   VARIABLE nuevoNodo: NODO
@@ -93,10 +93,44 @@ FIN FUNCION
  FIN PROC
 ```
 
-- Insertar al final: se recorre la lista hasta llegar al que no tenga puntero NULL. Luego se instancia el nuevo nodo y se hace que este ultimo elemento apunte a este nodo recien creado.
-- Insertar elementos en la enisima posicion: si se quiere insertar un elemento despues de "n-element", se apunta a este "n-element" se instancia el nuevo nodo apuntando al siguiente "n+1-element", luego se apunta "n-element" al nuevo nodo.
+- **Insertar al final:** se recorre la lista hasta llegar al que no tenga puntero NULL. Luego se instancia el nuevo nodo y se hace que este ultimo elemento apunte a este nodo recien creado.
 
+- **Insertar elementos en la enisima posicion:** si se quiere insertar un elemento despues de "n-element", se apunta a este "n-element" se instancia el nuevo nodo apuntando al siguiente "n+1-element", luego se apunta "n-element" al nuevo nodo.
 
+## Eliminar un elemento de la lista
+
+- **Eliminar al comienzo**
+
+``` C
+ PROC EliminarPrimero(l: Lista)
+  VARIABLE temporal: Nodo
+  
+  temporal = l.primero
+  l.primero = l.primero.siguiente
+  
+  ELIMINAR temporal
+
+ FIN PROC
+```
+- **Eliminar al final**
+
+``` C
+ PROC EliminarUltimo(l: Lista)
+  VARIABLE temporal: Nodo
+  VARIABLE nodo: Nodo
+  
+  nodo = l.primero
+  MIENTRAS (nodo.siguiente.siguiente != NULL)
+      nodo = nodo.siguiente
+  FIN MIENTRAS
+  
+  temporal = nodo.siguiente
+  nodo.siguiente = NULL
+  
+  ELIMINAR temporal
+
+ FIN PROC
+```
 
 
 
