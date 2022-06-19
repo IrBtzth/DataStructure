@@ -67,6 +67,7 @@ bibloteca.primero.sguiente.siguiente
   
 FIN FUNCION    
 }
+```
 
 ## Insentar elementos en una lista
 
@@ -77,12 +78,23 @@ FIN FUNCION
   VARIABLE nuevoNodo : Nodo
   nuevoNodo.elemento = l
   nuevoNodo.siguiente = NULL
-  lista.primero = nuevoNod
-    
-}
+  lista.primero = nuevoNodo
+ 
 ```
 
+- Insertar al principio
+``` C
+ PROC InsertarPrincipio(l: Lista, b:libro)
+  VARIABLE nuevoNodo: NODO
+  nuevoNodo.elemento = b
+  nuevoNodo.siguiente = l.primero
+  l.primero = nuevoNodo
 
+ FIN PROC
+```
+
+- Insertar al final: se recorre la lista hasta llegar al que no tenga puntero NULL. Luego se instancia el nuevo nodo y se hace que este ultimo elemento apunte a este nodo recien creado.
+- Insertar elementos en la enisima posicion: si se quiere insertar un elemento despues de "n-element", se apunta a este "n-element" se instancia el nuevo nodo apuntando al siguiente "n+1-element", luego se apunta "n-element" al nuevo nodo.
 
 
 
